@@ -1,0 +1,8 @@
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\bin\Debug\UcMonteChange.dll
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\bin\Debug\UcMonteChange.pdb
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\obj\Debug\UcMonteChange.csproj.AssemblyReference.cache
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\obj\Debug\UcMonteChange.csproj.GenerateResource.cache
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\obj\Debug\UcMonteChange.csproj.CoreCompileInputs.cache
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\obj\Debug\UcMonteChange.dll
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\obj\Debug\UcMonteChange.pdb
+C:\Users\51915\Desktop\Teccart\5eme session\objet conecte\MonteChangeTest\UcMonteChange\obj\Debug\UcMonteChange.MonteCharge.resources
