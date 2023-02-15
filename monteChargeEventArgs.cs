@@ -9,9 +9,11 @@ namespace UcMonteChange
     public class monteChargeEventArgs: EventArgs
     {
         public readonly string message;
-        public monteChargeEventArgs(string message)
+        public readonly int etage;
+        public monteChargeEventArgs(string message, int etage)
         {
             this.message = message;
+            this.etage = etage;
         }
         
     }

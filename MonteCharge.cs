@@ -102,9 +102,8 @@ namespace UcMonteChange
                     StatuUpDown = 2;
                 }   
                 removePriorite(priorite, temp);
+
                 action(temp);
-
-
             }
         }
 
@@ -131,13 +130,13 @@ namespace UcMonteChange
                     }
                     else
                     {
-                        MessageBox.Show("Vous etes la");
+                       //essageBox.Show("Vous etes la");
                         starPriorite();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vous etes la");
+                   //essageBox.Show("Vous etes la");
                     starPriorite();
 
             }
@@ -191,7 +190,7 @@ namespace UcMonteChange
                 statusPorte = 1;
                 if (DoorIsOpen !=null)
                 {
-                    DoorIsOpen(this, new monteChargeEventArgs("La porte est ouvert"));
+                    DoorIsOpen(this, new monteChargeEventArgs("La porte est ouvert",position));
                     
                 }
 
@@ -199,16 +198,18 @@ namespace UcMonteChange
                 {
                     case 0:
                         btnRc.BackColor = Color.White;
+                        btnUpRC.BackColor = Color.White;
                         break;
                     case 1:
                         btnE1.BackColor = Color.White;
+                        btnUp1E.BackColor = Color.White;
+                        brnDown1E.BackColor = Color.White;
+
                         break;
                     case 2:
                         btnE2.BackColor = Color.White;
-                        break;
-                    case 3:
-                        btnE3.BackColor = Color.White;
-                        break;
+                        btnDown2E.BackColor = Color.White;
+                        break;                    
                 }
 
                 starPriorite();
@@ -268,10 +269,10 @@ namespace UcMonteChange
                     StatuUpDown = 2;
                     int temp = this.panel2.Location.Y + 10;               
                     panel2.Location = new Point(panel2.Location.X, panel2.Location.Y + 10);
-                    if (sensorPos(temp) != 4)
+                    if (sensorPos(temp) != 3)
                     {
                         lumier(sensorPos(temp));
-                        posRel = sensorPos(temp);
+                        posRel = sensorPos(temp);                        
                     }
                 }
                 else
@@ -282,9 +283,23 @@ namespace UcMonteChange
                     timer.Enabled = false;
                     StatuUpDown = 0;
 
-                    operationMode2 = OuverturePorte;
-                    timer.Enabled = true;
-                    timer.Start();
+
+                    if (btnE1.BackColor == Color.SkyBlue && position == 1)
+                    {
+                        operationMode2 = OuverturePorte;
+                        timer.Enabled = true;
+                        timer.Start();
+                    }
+                    else if (btnRc.BackColor == Color.SkyBlue && position == 0)
+                    {
+                        operationMode2 = OuverturePorte;
+                        timer.Enabled = true;
+                        timer.Start();
+                    }
+                    else
+                    {
+                        starPriorite();
+                    }
 
                 }
             }
@@ -307,7 +322,7 @@ namespace UcMonteChange
                     int temp = this.panel2.Location.Y - 10;            
                     this.panel2.Location=new Point(this.panel2.Location.X,temp);              
 
-                    if(sensorPos(temp)!=4)
+                    if(sensorPos(temp)!=3)
                     {
                         lumier(sensorPos(temp));
                         posRel = sensorPos(temp);
@@ -320,15 +335,29 @@ namespace UcMonteChange
                     timer.Stop();
                     timer.Enabled = false;
                     StatuUpDown = 0;
-
-                    operationMode2 = OuverturePorte;
-                    timer.Enabled = true;
-                    timer.Start();
+                    
+                    if(btnE1.BackColor==Color.SkyBlue && position==1)
+                    {
+                        operationMode2 = OuverturePorte;
+                        timer.Enabled = true;
+                        timer.Start();
+                    }
+                    else if(btnE2.BackColor== Color.SkyBlue && position == 2)
+                    {
+                        operationMode2 = OuverturePorte;
+                        timer.Enabled = true;
+                        timer.Start();
+                    }
+                    else
+                    {
+                        starPriorite();
+                    }
+                   
                 }
             }
             else
             {
-                statusPrecedent = upCharge;
+                    statusPrecedent = upCharge;
                     operationMode2 = FermeturePorte;
                     timer.Enabled = true;
                     timer.Start();                
@@ -338,12 +367,28 @@ namespace UcMonteChange
         private void btnRc_Click(object sender, EventArgs e)
         {
             // action(0);
-            if (btnRc.BackColor != Color.SkyBlue)
+            if (position != 0)
             {
-                btnRc.BackColor = Color.SkyBlue;
+                if (btnRc.BackColor != Color.SkyBlue)
+                {
+                    btnRc.BackColor = Color.SkyBlue;
+                }
+
+                int nbStop = Math.Abs(position - 0);
+                if (nbStop == 1)
+                {
+                    addPriorite(priorite, 0);
+                }
+                else if (nbStop == 2)
+                {
+                    addPriorite(priorite, 1);
+                    addPriorite(priorite, 0);
+                }
+                // addPriorite(priorite, 0);
+                ordenerPriorite(priorite);
+
             }
-            addPriorite(priorite, 0);
-            ordenerPriorite(priorite);
+                
         }
 
         private void btnE1_Click(object sender, EventArgs e)
@@ -358,50 +403,56 @@ namespace UcMonteChange
         }
         private void btnE2_Click(object sender, EventArgs e)
         {
+            
             // action(2);
-            if (btnE2.BackColor != Color.SkyBlue)
+            if(position!=2)
             {
-                btnE2.BackColor = Color.SkyBlue;
+                if (btnE2.BackColor != Color.SkyBlue)
+                {
+                    btnE2.BackColor = Color.SkyBlue;
+                }
+                int nbStop = Math.Abs(position - 2);
+                if (nbStop == 1)
+                {
+                    addPriorite(priorite, 2);
+                }
+                else if (nbStop == 2)
+                {
+                    addPriorite(priorite, 1);
+                    addPriorite(priorite, 2);
+                }
+
+                ordenerPriorite(priorite);
             }
-            addPriorite(priorite, 2);
-            ordenerPriorite(priorite);
+            
         }
 
-        private void btnE3_Click(object sender, EventArgs e)
-        {
-            //action(3);
-            if (btnE3.BackColor != Color.SkyBlue)
-            {
-                btnE3.BackColor = Color.SkyBlue;
-            }
-            addPriorite(priorite, 3);
-            ordenerPriorite(priorite);
-        }
+       
 
         private void lumier(int etage)
         {
             switch (etage)
             {
                 case 0:
-                    lblE3.BackColor = Color.White;
+                  
                     lblE2.BackColor = Color.White;
                     lblE1.BackColor = Color.White;                    
                     lblRC.BackColor = Color.Green;
                     break;
                 case 1:
-                    lblE3.BackColor = Color.White;
+                   
                     lblE2.BackColor = Color.White;
                     lblE1.BackColor = Color.Green;                    
                     lblRC.BackColor = Color.White;
                     break;
                 case 2:
-                    lblE3.BackColor = Color.White;
+                   
                     lblE2.BackColor = Color.Green;
                     lblE1.BackColor = Color.White;                    
                     lblRC.BackColor = Color.White;
                     break;
                 case 3:
-                    lblE3.BackColor = Color.Green;
+                    
                     lblE2.BackColor = Color.White;
                     lblE1.BackColor = Color.White;                    
                     lblRC.BackColor = Color.White;
@@ -411,56 +462,111 @@ namespace UcMonteChange
 
         private void btnDown2E_Click(object sender, EventArgs e)
         {
-            if (btnDown2E.BackColor == Color.SkyBlue)
+            if (position != 2)
             {
-                btnDown2E.BackColor = Color.White;
-            }
-            else
-            {
-                btnDown2E.BackColor = Color.SkyBlue;
-               //addPriorite(priorite, "2ED");
+                if (btnDown2E.BackColor != Color.SkyBlue)
+                {
+                    btnDown2E.BackColor = Color.SkyBlue;
+                    btnE2.BackColor = Color.SkyBlue;
+                }
+                int nbStop = Math.Abs(position - 2);
+                if (nbStop == 1)
+                {
+                    addPriorite(priorite, 2);
+                }
+                else if (nbStop == 2)
+                {
+                    addPriorite(priorite, 1);
+                    addPriorite(priorite, 2);
+                }
 
+                ordenerPriorite(priorite);
             }
+                
+
+           
+          
         }
 
         private void btnUp1E_Click(object sender, EventArgs e)
         {
-            if (btnUp1E.BackColor == Color.SkyBlue)
-            {
-                btnUp1E.BackColor = Color.White;
-            }
-            else
-            {
-                btnUp1E.BackColor = Color.SkyBlue;
-               // addPriorite(priorite, "1EU");
 
-            }
+            if (position != 1)
+            {
+                if (btnUp1E.BackColor != Color.SkyBlue)
+                {
+                    btnUp1E.BackColor = Color.SkyBlue;
+                    btnE1.BackColor = Color.SkyBlue;
+                }
+                int nbStop = Math.Abs(position - 2);
+                if (nbStop == 1)
+                {
+                    addPriorite(priorite, 2);
+                }
+                else if (nbStop == 2)
+                {
+                    addPriorite(priorite, 1);
+                    addPriorite(priorite, 2);
+                }
+
+                ordenerPriorite(priorite);
+            }           
         }
 
         private void brnDown1E_Click(object sender, EventArgs e)
         {
-            if (brnDown1E.BackColor == Color.SkyBlue)
+            if (position != 1)
             {
-                brnDown1E.BackColor = Color.White;
-            }
-            else
-            {
-                brnDown1E.BackColor = Color.SkyBlue;
-                //addPriorite(priorite, "1ED");
+                if (brnDown1E.BackColor != Color.SkyBlue)
+                {
+                    brnDown1E.BackColor = Color.SkyBlue;
+                    btnE1.BackColor = Color.SkyBlue;
+                }
+                int nbStop = Math.Abs(position - 2);
+                if (nbStop == 1)
+                {
+                    addPriorite(priorite, 2);
+                }
+                else if (nbStop == 2)
+                {
+                    addPriorite(priorite, 1);
+                    addPriorite(priorite, 2);
+                }
+
+                ordenerPriorite(priorite);
             }
         }
 
         private void btnUpRC_Click(object sender, EventArgs e)
         {
-            if (btnUpRC.BackColor == Color.SkyBlue)
+
+            if (position != 0)
             {
-                btnUpRC.BackColor = Color.White;
+                if (btnUpRC.BackColor != Color.SkyBlue)
+                {
+                    btnUpRC.BackColor = Color.SkyBlue;
+                    btnRc.BackColor = Color.SkyBlue;
+                }
+
+                int nbStop = Math.Abs(position - 0);
+                if (nbStop == 1)
+                {
+                    addPriorite(priorite, 0);
+                }
+                else if (nbStop == 2)
+                {
+                    addPriorite(priorite, 1);
+                    addPriorite(priorite, 0);
+                }
+                // addPriorite(priorite, 0);
+                ordenerPriorite(priorite);
+
             }
-            else
-            {
-                btnUpRC.BackColor = Color.SkyBlue;
-                //addPriorite(priorite, "0EU");
-            }
+
+           
+           
+            addPriorite(priorite, 0);
+            ordenerPriorite(priorite);
         }
 
         private int sensorPos(int pos)
@@ -468,23 +574,20 @@ namespace UcMonteChange
             int etage = 0;
             if((0 < pos) && (pos <30))
             {
-                etage = 3;
+                etage = 2;
             }
             else if ((90 < pos) && (pos < 120))
             {
-                etage = 2;
+                etage = 1;
             }
             else if ((190 < pos) && (pos < 220))
             {
-                etage = 1;
-            }
-            else if ((290 < pos) && (pos < 320))
-            {
                 etage = 0;
             }
+           
             else
             {
-                etage = 4;
+                etage = 3;
             }
             return etage;
         }

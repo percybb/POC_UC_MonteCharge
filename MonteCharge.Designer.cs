@@ -51,9 +51,6 @@
             this.btnDown2E = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnUpRC = new System.Windows.Forms.Button();
-            this.btnE3 = new System.Windows.Forms.Button();
-            this.lblE3 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -70,10 +67,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(207, 62);
+            this.panel1.Location = new System.Drawing.Point(124, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(128, 391);
+            this.panel1.Size = new System.Drawing.Size(128, 295);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -81,7 +77,7 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel2.Location = new System.Drawing.Point(11, 300);
+            this.panel2.Location = new System.Drawing.Point(11, 200);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(104, 80);
             this.panel2.TabIndex = 1;
@@ -122,20 +118,19 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel5.Controls.Add(this.btnE3);
             this.panel5.Controls.Add(this.btnRc);
             this.panel5.Controls.Add(this.btnE1);
             this.panel5.Controls.Add(this.btnE2);
             this.panel5.Controls.Add(this.btnCloseDoor);
             this.panel5.Controls.Add(this.btnOpenDoor);
-            this.panel5.Location = new System.Drawing.Point(358, 119);
+            this.panel5.Location = new System.Drawing.Point(275, 112);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(133, 217);
+            this.panel5.Size = new System.Drawing.Size(133, 152);
             this.panel5.TabIndex = 1;
             // 
             // btnRc
             // 
-            this.btnRc.Location = new System.Drawing.Point(39, 165);
+            this.btnRc.Location = new System.Drawing.Point(39, 114);
             this.btnRc.Name = "btnRc";
             this.btnRc.Size = new System.Drawing.Size(56, 28);
             this.btnRc.TabIndex = 4;
@@ -145,7 +140,7 @@
             // 
             // btnE1
             // 
-            this.btnE1.Location = new System.Drawing.Point(39, 131);
+            this.btnE1.Location = new System.Drawing.Point(39, 80);
             this.btnE1.Name = "btnE1";
             this.btnE1.Size = new System.Drawing.Size(56, 28);
             this.btnE1.TabIndex = 3;
@@ -155,7 +150,7 @@
             // 
             // btnE2
             // 
-            this.btnE2.Location = new System.Drawing.Point(39, 97);
+            this.btnE2.Location = new System.Drawing.Point(39, 46);
             this.btnE2.Name = "btnE2";
             this.btnE2.Size = new System.Drawing.Size(56, 28);
             this.btnE2.TabIndex = 2;
@@ -186,13 +181,12 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel6.Controls.Add(this.lblE3);
             this.panel6.Controls.Add(this.lblE2);
             this.panel6.Controls.Add(this.lblE1);
             this.panel6.Controls.Add(this.lblRC);
-            this.panel6.Location = new System.Drawing.Point(214, 15);
+            this.panel6.Location = new System.Drawing.Point(135, 8);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(139, 41);
+            this.panel6.Size = new System.Drawing.Size(109, 41);
             this.panel6.TabIndex = 2;
             // 
             // lblE2
@@ -233,7 +227,7 @@
             this.panel7.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel7.Controls.Add(this.brnDown1E);
             this.panel7.Controls.Add(this.btnUp1E);
-            this.panel7.Location = new System.Drawing.Point(137, 162);
+            this.panel7.Location = new System.Drawing.Point(54, 155);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(51, 69);
             this.panel7.TabIndex = 3;
@@ -264,7 +258,7 @@
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel9.Controls.Add(this.btnDown2E);
-            this.panel9.Location = new System.Drawing.Point(137, 80);
+            this.panel9.Location = new System.Drawing.Point(54, 73);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(51, 36);
             this.panel9.TabIndex = 8;
@@ -284,7 +278,7 @@
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel8.Controls.Add(this.btnUpRC);
-            this.panel8.Location = new System.Drawing.Point(137, 276);
+            this.panel8.Location = new System.Drawing.Point(54, 269);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(51, 36);
             this.panel8.TabIndex = 9;
@@ -300,35 +294,6 @@
             this.btnUpRC.UseVisualStyleBackColor = false;
             this.btnUpRC.Click += new System.EventHandler(this.btnUpRC_Click);
             // 
-            // btnE3
-            // 
-            this.btnE3.Location = new System.Drawing.Point(39, 63);
-            this.btnE3.Name = "btnE3";
-            this.btnE3.Size = new System.Drawing.Size(56, 28);
-            this.btnE3.TabIndex = 5;
-            this.btnE3.Text = "E3";
-            this.btnE3.UseVisualStyleBackColor = true;
-            this.btnE3.Click += new System.EventHandler(this.btnE3_Click);
-            // 
-            // lblE3
-            // 
-            this.lblE3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblE3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblE3.Location = new System.Drawing.Point(106, 5);
-            this.lblE3.Name = "lblE3";
-            this.lblE3.Size = new System.Drawing.Size(25, 23);
-            this.lblE3.TabIndex = 3;
-            this.lblE3.Text = "3";
-            this.lblE3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(3, 274);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 23);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "___________________";
-            // 
             // MonteCharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,7 +305,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Name = "MonteCharge";
-            this.Size = new System.Drawing.Size(553, 527);
+            this.Size = new System.Drawing.Size(437, 379);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -378,8 +343,5 @@
         private System.Windows.Forms.Button btnDown2E;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnUpRC;
-        private System.Windows.Forms.Button btnE3;
-        private System.Windows.Forms.Label lblE3;
-        private System.Windows.Forms.Label label3;
     }
 }
